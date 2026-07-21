@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <!-- Data Table (Tepat 6 Kolom) -->
+    <!-- Data Table (Tampilan Web App Tetap Normal & Rapi) -->
     <div class="table-responsive">
         <table>
             <thead>
@@ -133,7 +133,7 @@
     </div>
 </div>
 
-<!-- FORMAT CETAK (PRINT / PDF) -->
+<!-- FORMAT KHUSUS CETAK (PRINT / PDF ONLY) -->
 <div id="printableArea">
     <div class="print-header">
         <div>
@@ -151,23 +151,26 @@
         <h3 style="margin: 0; font-size: 16px;">SURAT BUKTI KELUAR BARANG (BKB)</h3>
     </div>
 
-    <!-- Informasi Atas (Hanya Penerima, Departemen & Alamat) -->
+    <!-- Informasi Cetak Berurutan Ke Bawah (1 Baris per Poin) -->
     <table style="width: 100%; font-size: 12px; margin-bottom: 15px; border-collapse: collapse;">
         <tr>
-            <td style="width: 15%; border: none; padding: 3px 0;"><strong>Penerima</strong></td>
-            <td style="width: 2%; border: none; padding: 3px 0;">:</td>
-            <td style="border: none; padding: 3px 0;" id="printPenerima">-</td>
-            <td style="width: 15%; border: none; padding: 3px 0;"><strong>Departemen</strong></td>
-            <td style="width: 2%; border: none; padding: 3px 0;">:</td>
-            <td style="border: none; padding: 3px 0;" id="printDepartemen">-</td>
+            <td style="width: 15%; border: none; padding: 4px 0;"><strong>Penerima</strong></td>
+            <td style="width: 2%; border: none; padding: 4px 0;">:</td>
+            <td style="border: none; padding: 4px 0;" id="printPenerima">-</td>
         </tr>
         <tr>
-            <td style="border: none; padding: 3px 0;"><strong>Alamat Tujuan</strong></td>
-            <td style="border: none; padding: 3px 0;">:</td>
-            <td style="border: none; padding: 3px 0;" id="printAlamat" colspan="4">-</td>
+            <td style="border: none; padding: 4px 0;"><strong>Departemen</strong></td>
+            <td style="border: none; padding: 4px 0;">:</td>
+            <td style="border: none; padding: 4px 0;" id="printDepartemen">-</td>
+        </tr>
+        <tr>
+            <td style="border: none; padding: 4px 0;"><strong>Alamat Tujuan</strong></td>
+            <td style="border: none; padding: 4px 0;">:</td>
+            <td style="border: none; padding: 4px 0;" id="printAlamat">-</td>
         </tr>
     </table>
 
+    <!-- Tabel Rincian Barang Cetak -->
     <table class="print-table">
         <thead>
             <tr>
@@ -185,7 +188,7 @@
         </tbody>
     </table>
 
-    <!-- Bagian Bawah Khusus TTD Manual -->
+    <!-- Tanda Tangan 4 Kolom Khusus Cetak -->
     <div class="print-footer">
         <div>
             <p>Diterima Oleh,</p>
