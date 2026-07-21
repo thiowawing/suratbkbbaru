@@ -5,10 +5,7 @@ const defaultDataBKB = [
         tanggal: "2026-07-21",
         nama_penerima: "Budi Santoso",
         departemen: "Maintenance & Operasional",
-        nama_staff_logistik: "Fariz Asad",
-        nama_spv: "Ahmad Dahlan",
-        nama_manager_logistik: "Hendra Wijaya",
-        alamat_penerima: "Site Project Cikarang, Jl. Industri Selatan No. 12",
+        alamat_penerima: "Site Project Cikarang, Jl. Industri Selatan No. 12, Kab. Bekasi",
         items: [
             {
                 kode: "BRG-001",
@@ -37,13 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
     tampilkanData();
 });
 
-// Render Data Utama
+// Render Data Utama (Tepat 6 Kolom)
 function tampilkanData(dataTampil = dataBKB) {
     const tbody = document.getElementById('tabelBKB');
     tbody.innerHTML = '';
 
     if (dataTampil.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #888;">Tidak ada data ditemukan.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: #888;">Tidak ada data ditemukan.</td></tr>`;
         return;
     }
 
@@ -55,7 +52,6 @@ function tampilkanData(dataTampil = dataBKB) {
             <td>${formatDateToID(item.tanggal)}</td>
             <td>${item.nama_penerima}</td>
             <td>${item.departemen}</td>
-            <td>${item.nama_spv}</td>
             <td style="text-align: center;">
                 <button class="btn btn-secondary" style="padding: 4px 7px;" onclick="cetakBKB(${index})" title="Cetak / PDF">
                     <i class="fa-solid fa-print"></i>
@@ -144,9 +140,6 @@ function simpanBKB(e) {
         tanggal: document.getElementById('tanggal').value,
         nama_penerima: document.getElementById('nama_penerima').value.trim(),
         departemen: document.getElementById('departemen').value.trim(),
-        nama_staff_logistik: document.getElementById('nama_staff_logistik').value.trim(),
-        nama_spv: document.getElementById('nama_spv').value.trim(),
-        nama_manager_logistik: document.getElementById('nama_manager_logistik').value.trim(),
         alamat_penerima: document.getElementById('alamat_penerima').value.trim(),
         items: listBarang
     };
@@ -175,9 +168,6 @@ function editBKB(index) {
     document.getElementById('tanggal').value = data.tanggal;
     document.getElementById('nama_penerima').value = data.nama_penerima;
     document.getElementById('departemen').value = data.departemen;
-    document.getElementById('nama_staff_logistik').value = data.nama_staff_logistik || '';
-    document.getElementById('nama_spv').value = data.nama_spv;
-    document.getElementById('nama_manager_logistik').value = data.nama_manager_logistik || '';
     document.getElementById('alamat_penerima').value = data.alamat_penerima || '';
 
     const container = document.getElementById('containerBarang');
@@ -211,14 +201,7 @@ function cetakBKB(index) {
     document.getElementById('printDepartemen').innerText = data.departemen;
     document.getElementById('printAlamat').innerText = data.alamat_penerima || '-';
 
-    document.getElementById('printStaffLogistik').innerText = data.nama_staff_logistik || '-';
-    document.getElementById('printSPV').innerText = data.nama_spv;
-    document.getElementById('printManagerLogistik').innerText = data.nama_manager_logistik || '-';
-
     document.getElementById('printSignPenerima').innerText = data.nama_penerima;
-    document.getElementById('printSignStaffLogistik').innerText = data.nama_staff_logistik || '...................';
-    document.getElementById('printSignSPV').innerText = data.nama_spv;
-    document.getElementById('printSignManager').innerText = data.nama_manager_logistik || '...................';
 
     const containerItemCetak = document.getElementById('printContainerBarang');
     containerItemCetak.innerHTML = '';
@@ -246,8 +229,7 @@ function cariData() {
         const matchMain = (
             item.no_surat.toLowerCase().includes(keyword) ||
             item.nama_penerima.toLowerCase().includes(keyword) ||
-            item.departemen.toLowerCase().includes(keyword) ||
-            item.nama_spv.toLowerCase().includes(keyword)
+            item.departemen.toLowerCase().includes(keyword)
         );
         const matchItems = item.items.some(i => 
             i.nama.toLowerCase().includes(keyword) || 
