@@ -1,149 +1,54 @@
-/* ===================================================
-   STYLING KHUSUS TAMPILAN WEB (NORMAL)
-   =================================================== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    margin: 0;
-    padding: 20px;
-    color: #333;
+/* Styling Note di Modal Form */
+.form-note {
+    background-color: #fefce8;
+    border: 1px solid #fef08a;
+    color: #854d0e;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* Sembunyikan area cetak saat di web browser */
-#printableArea {
-    display: none;
+/* Styling Note Peringatan Khusus Hasil Print */
+.print-warning-note {
+    border: 1px solid #1e293b;
+    background-color: #f8fafc;
+    padding: 8px 12px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 10.5px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 4px solid #1e293b;
 }
 
-/* ... styling umum web lainnya ... */
+/* Utility Class Tambahan */
+.w-2 { width: 2%; }
+.w-5 { width: 5%; }
+.w-8 { width: 8%; }
+.w-10 { width: 10%; }
+.w-15 { width: 15%; }
+.w-22 { width: 22%; }
+.mb-15 { margin-bottom: 15px; }
+.mt-10 { margin-top: 10px; }
+.border-none { border: none !important; }
+.py-4 { padding-top: 4px; padding-bottom: 4px; }
+.text-right { text-align: right; }
+.fs-10 { font-size: 10px; }
 
+.col-no { width: 5%; text-align: center; }
+.col-bkb { width: 22%; }
+.col-tgl { width: 15%; }
+.col-penerima { width: 20%; }
+.col-dept { width: 23%; }
+.col-aksi { width: 15%; text-align: center; }
 
-/* ===================================================
-   STYLING KHUSUS CETAK (MEDIA PRINT / PDF) - HD & TEBAL
-   =================================================== */
-@media print {
-    /* Sembunyikan elemen antarmuka web */
-    body * {
-        visibility: hidden;
-    }
-
-    /* Tampilkan hanya area cetak */
-    #printableArea, #printableArea * {
-        visibility: visible;
-        color: #000000 !important; /* Hitam pekat murni */
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    #printableArea {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        display: block !important;
-        padding: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 13px; /* Ukuran font diperbesar sedikit agar jelas */
-        line-height: 1.4;
-    }
-
-    /* Header Perusahaan & Judul Surat */
-    .print-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        border-bottom: 3px solid #000; /* Garis pemisah atas dipertebal */
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
-
-    .print-header h2 {
-        font-weight: 800 !important; /* Sangat tebal */
-        font-size: 20px !important;
-        margin: 0;
-    }
-
-    .print-header p {
-        font-weight: 600 !important;
-        font-size: 12px !important;
-    }
-
-    .print-title {
-        text-align: center;
-        margin: 15px 0 20px 0;
-    }
-
-    .print-title h3 {
-        font-weight: 800 !important;
-        font-size: 18px !important;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-    }
-
-    /* Tabel Informasi Penerima, Dept, & Alamat */
-    #printableArea table {
-        color: #000000 !important;
-    }
-
-    #printableArea table td {
-        font-weight: 600 !important; /* Teks informasi dibuat tebal sedang */
-        font-size: 13px !important;
-    }
-
-    #printableArea table td strong {
-        font-weight: 800 !important; /* Label utama dibuat sangat tebal */
-    }
-
-    /* Tabel Utama Rincian Barang */
-    .print-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-        margin-bottom: 25px;
-    }
-
-    .print-table th, 
-    .print-table td {
-        border: 2px solid #000000 !important; /* Garis tabel dipertebal jadi 2px */
-        padding: 8px 6px;
-        font-size: 12px !important;
-        color: #000000 !important;
-    }
-
-    .print-table th {
-        background-color: #e6e6e6 !important; /* Warna header tabel sedikit abu terang */
-        font-weight: 800 !important;
-        text-align: center;
-        text-transform: uppercase;
-    }
-
-    .print-table td {
-        font-weight: 600 !important; /* Isian tabel barang tebal dan tidak samar */
-    }
-
-    /* Area Tanda Tangan */
-    .print-footer {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
-        page-break-inside: avoid;
-    }
-
-    .print-footer > div {
-        width: 23%;
-        text-align: center;
-    }
-
-    .print-footer p {
-        font-weight: 700 !important;
-        margin: 4px 0;
-    }
-
-    .signature-box {
-        height: 60px; /* Ruang tanda tangan manual */
-    }
-
-    .print-footer small {
-        font-weight: 700 !important;
-        font-size: 11px !important;
-    }
-}
+.print-company-name { margin: 0; font-size: 18px; }
+.print-company-detail { margin: 2px 0 0 0; font-size: 11px; }
+.print-doc-no { margin: 0; font-size: 16px; }
+.print-info-table { width: 100%; font-size: 12px; margin-bottom: 15px; border-collapse: collapse; }
